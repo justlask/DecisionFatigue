@@ -6,9 +6,12 @@
 document.querySelector("#no").onclick = () => {
   axios.get("https://www.boredapi.com/api/activity").then(data => {
     console.log(data.data.activity)
+
+
     
     axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=${data.data.activity}`).then(data => {
-      let url = data.data.data[0].images.original.url
+      let random = Math.floor(10 * Math.random())
+      let url = data.data.data[random].images.original.url
 
       document.body.style.backgroundImage =  `linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("${url}")`
     })
@@ -39,9 +42,11 @@ document.querySelector("#yes").onclick = () => {
   let random = Math.floor(tasks.length * Math.random())
   let thing = tasks[random]
 
+  let imgRando = Math.floor(10 * Math.random());
+
 
   axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=${thing}`).then(data => {
-      let url = data.data.data[0].images.original.url
+      let url = data.data.data[imgRando].images.original.url
 
       document.body.style.backgroundImage =  `linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(${url})`
     })
