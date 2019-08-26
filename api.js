@@ -14,7 +14,7 @@ document.querySelector("#no").onclick = () => {
     })
 
     createResponseBox();
-    document.querySelector("#dothis").innerHTML = `Okay, how about.....<br> ${data.data.activity}`
+    document.querySelector("#dothis").innerHTML = `${data.data.activity}`
   })
 }
 
@@ -29,6 +29,7 @@ document.querySelector("#add").onclick = () => {
 
   console.log(response)
   tasks.push(response);
+  document.querySelector("#answer p").innerHTML = tasks.join(", ")
 }
 
 
@@ -46,7 +47,7 @@ document.querySelector("#yes").onclick = () => {
     })
 
   createResponseBox();
-  document.querySelector("#dothis").innerHTML = `Let's get this out of the way:<br> ${thing}`
+  document.querySelector("#dothis").innerHTML = `${thing}`
 }
 
 
