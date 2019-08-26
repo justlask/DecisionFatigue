@@ -20,10 +20,23 @@ nav {
   height: 5vh;
 }
 
+button {
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
 #tasks {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: space-around;
+}
+
+#task {
+  margin-right: 10px;
+  border-radius: 8px;
+  font-size: 18px;
 }
 
 
@@ -60,6 +73,12 @@ nav {
   flex-direction: column;
   min-height: 65vh;
   text-align: center;
+}
+
+.responses:last-child {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #yes {
