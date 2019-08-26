@@ -10,7 +10,7 @@ document.querySelector("#no").onclick = () => {
     axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=${data.data.activity}`).then(data => {
       let url = data.data.data[0].images.original.url
 
-      document.body.style.backgroundImage =  `url(${url})`
+      document.body.style.backgroundImage =  `linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("${url}")`
     })
 
     createResponseBox();
@@ -43,7 +43,7 @@ document.querySelector("#yes").onclick = () => {
   axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=${thing}`).then(data => {
       let url = data.data.data[0].images.original.url
 
-      document.body.style.backgroundImage =  `url(${url})`
+      document.body.style.backgroundImage =  `linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(${url})`
     })
 
   createResponseBox();
