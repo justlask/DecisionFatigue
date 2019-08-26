@@ -4,16 +4,28 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   font-family: "Open Sans"
 }
-
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px;
+}
 header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+#tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 
@@ -22,4 +34,40 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+
+#do {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 200px;
+  width: 100%;
+}
+
+
+.responses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#yes {
+  background-color: green;
+  padding: 20px 50px;
+}
+
+
+#no {
+  background-color: red;
+  padding: 20px 50px;
+}
+
+#tasks input {
+  padding: 10px 50px;
+}
+#add {
+  padding: 10px 50px;
 }
