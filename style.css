@@ -5,27 +5,33 @@ body {
   margin: 0;
   padding: 0;
   background-color: white;
-  color: black;
-  font-family: "Open Sans"
+  color: white;
+  font-family: "Open Sans";
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-position: 0 0;
 }
 nav {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5)
 }
 header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #tasks {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  background-color: rgba(255, 255, 255, 0.8)
 }
 
 
@@ -44,6 +50,12 @@ header {
   flex-direction: column;
   height: 200px;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#dothis {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 30px;
 }
 
 
@@ -52,6 +64,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #yes {
