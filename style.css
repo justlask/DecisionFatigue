@@ -9,7 +9,9 @@ body {
   font-family: "Open Sans";
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
 }
 nav {
   display: flex;
@@ -18,6 +20,7 @@ nav {
   color: white;
   padding: 25px 50px;
   height: 5vh;
+  overflow: hidden;
 }
 
 button {
@@ -31,12 +34,14 @@ button {
   display: flex;
   justify-content: center;
   align-items: space-around;
+  overflow: hidden;
 }
 
 #task {
   margin-right: 10px;
   border-radius: 8px;
   font-size: 18px;
+  overflow: hidden;
 }
 
 
@@ -47,18 +52,20 @@ button {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 
 #do {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   height: 200px;
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 #dothis {
@@ -97,4 +104,47 @@ button {
 }
 #add {
   padding: 10px 50px;
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
+  nav h1 {
+    font-size: 25px;
+  }
+  nav {
+    padding: 25px 20px;
+  }
+  #tasks input {
+    padding: 0px 10px;
+  }
+  #add {
+    padding: 0px 10px;
+    background-color: white;
+    font-size: 16px;
+  }
+  #yes {
+    background-color: green;
+    padding: 5px 20px;
+  }
+  #no {
+    background-color: red;
+    padding: 5px 20px;
+  }
+
+  .responses h1 {
+    font-size: 20px;
+    text-align: left;
+    margin-left: 20px;
+  }
+  .responses p {
+    margin-left: 20px;
+    text-align: left;
+  }
+  #answer p,
+  #answer h3 {
+    margin: 10px 5px;
+  }
+  
 }

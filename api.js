@@ -1,8 +1,4 @@
-//enter things to do, randomly pick one
-// Do you really want to do one of these things?
-// No => bored.api
-// Yes => randomly pick one.
-
+// No button => gets random activity from bored api, then finds a random gif with that activity.
 document.querySelector("#no").onclick = () => {
   axios.get("https://www.boredapi.com/api/activity").then(data => {
     console.log(data.data.activity)
@@ -22,8 +18,9 @@ document.querySelector("#no").onclick = () => {
 }
 
 
-  let tasks = []
-
+//Takes value from input and adds it to an array of items to do
+// prints the array of tasks to the page.
+let tasks = []
 document.querySelector("#add").onclick = () => {
   event.preventDefault();
   let response = document.querySelector("#task").value
@@ -35,9 +32,7 @@ document.querySelector("#add").onclick = () => {
   document.querySelector("#answer p").innerHTML = tasks.join(", ")
 }
 
-
-
-
+// Yes button picks a random element in the tasks array and then finds a gif for it.
 document.querySelector("#yes").onclick = () => {
   let random = Math.floor(tasks.length * Math.random())
   let thing = tasks[random]
@@ -56,9 +51,21 @@ document.querySelector("#yes").onclick = () => {
 }
 
 
+
+// create the response box
 function createResponseBox() {
-  document.querySelector("#dothis").setAttribute("style", "display: flex; justify-content: center; align-items: center; height: 200px; width: 600px;")
+  document.querySelector("#dothis").setAttribute("style", "display: flex; justify-content: center; align-items: center; max-height: 200px; max-width: 600px;")
 }
+
+
+
+
+// mobile stuff
+//i wanna, make the gif populate only in the response box
+// alert with the gift and task to do
+
+
+
 
 
 
