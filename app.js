@@ -100,7 +100,7 @@ document.querySelector("#next").onclick = () => {
     document.querySelector("#list").setAttribute("style", "display: none;")
     document.querySelector("#answer").setAttribute("style", "display: none;")
     document.querySelector("#dothis").innerHTML = ` CONGRATS! You've finished your tasks!`
-    document.querySelector("#next").setAttribute("style", "display: block;")
+    document.querySelector("#next").setAttribute("style", "display: none;")
     //alert("If you don't tell us any tasks you need to do, how can we help you decide??")
   }
   else {

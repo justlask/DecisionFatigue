@@ -14,7 +14,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-position: center;
 }
 nav {
@@ -126,49 +126,28 @@ button {
 #tasks input {
   padding: 10px 50px;
 }
-#add {
+#add,
+#done {
   padding: 10px 20px;
+  background-color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#next {
+  background-color: white;
+  height: 40px;
 }
 
 
 
 
 @media only screen and (max-width: 700px) {
-  nav h1 {
-    font-size: 25px;
+  header {
+    padding-top: 150px;
   }
-  nav {
-    padding: 25px 20px;
-  }
-  #tasks input {
-    padding: 0px 10px;
-  }
-  #add {
-    padding: 0px 10px;
-    background-color: white;
-    font-size: 16px;
-  }
-  #yes {
-    background-color: green;
-    padding: 5px 20px;
-  }
-  #no {
-    background-color: red;
-    padding: 5px 20px;
-  }
-
-  .responses h1 {
-    font-size: 20px;
-    text-align: left;
-    margin-left: 20px;
-  }
-  .responses p {
-    margin-left: 20px;
-    text-align: left;
-  }
-  #answer p,
-  #answer h3 {
-    margin: 10px 5px;
-  }
-  
 }
