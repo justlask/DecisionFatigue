@@ -6,45 +6,46 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <title>Make the choices for me!</title>
+  <link rel="stylesheet" href="./style.css">
+  <title>Decide for me.</title>
 </head>
 <body>
   <nav>
-    <h1>Decide For Me.</h1>
+    <a href="./tasks.html"><h1>Decide For Me.</h1></a>
   </nav>
+  <div id="do">
+      <div id="dothis">
+  
+      </div>
+    </div>
+  <header>
+    <h1>We make thousands of decisions every day.
+      <br>
+      How about you let us make some decisions for you.
+    </h1>
+  <p>Enter your tasks and then let us decide what you should do.<br><br></p>
+  </header>
   <div class="responses">
-      <h1>We make thousands of decisions every day.
-          <br>
-          How about you let us make some decisions for you.
-        </h1>
-      <p>Tell me what you need to do and let us decide for you.<br><br></p>
       <form id="tasks">
-          <input type="text" name="task" id="task" placeholder="enter task here" required>
-          <button id="add">add another thing</button>
+          <input type="text" name="task" id="task" placeholder="enter each task here" required>
+          <button id="add">add task</button>
         </form>
+        <div id="list">
+          <ol>    
+          </ol>
+          <button id="done">That's it.</button>
+        </div>
         <div id="answer">
           <h3>Do you really want to do one of these?</h3>
-          <p></p>
           <div>
-              <button id="yes">Yes</button>
-              <button id="no">No</button>
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
           </div>
         </div>
-  </div>
-
-
-  <div id="do">
-    <div id="dothis">
-
     </div>
-  </div>
-
-
-
-
-
-
-  <script src="api.js"></script>
+    <footer>
+      <button id="next">Tell me what to do next!</button>
+    </footer>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ document.querySelector("#no").onclick = () => {
     })
 
     createResponseBox();
-    document.querySelector("#dothis").innerHTML = `${data.data.activity}`
+    document.querySelector("#dothis").innerHTML = `We have decided you will ${data.data.activity.toLowerCase()}`
   })
 }
 
@@ -24,11 +24,15 @@ let tasks = []
 document.querySelector("#add").onclick = () => {
   event.preventDefault();
   let response = document.querySelector("#task").value
+
+  if (response === "") {
+    alert("enter a task and then hit enter or click add task")
+  }
+  else {
+    tasks.push(response);
     document.querySelector("#task").value = ""
-
-
-  console.log(response)
-  tasks.push(response);
+  }
+  console.log(tasks)
   document.querySelector("#answer p").innerHTML = tasks.join(", ")
 }
 
@@ -36,18 +40,28 @@ document.querySelector("#add").onclick = () => {
 document.querySelector("#yes").onclick = () => {
   let random = Math.floor(tasks.length * Math.random())
   let thing = tasks[random]
-
   let imgRando = Math.floor(10 * Math.random());
 
-
-  axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=${thing}`).then(data => {
+  if (thing === undefined) {
+    createResponseBox();
+    axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=judging`).then(data => {
+      let url = data.data.data[imgRando].images.original.url
+    document.body.style.backgroundImage =  `linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(${url})`
+    })
+    document.querySelector("#dothis").innerHTML = `You have not added any tasks`
+    //alert("If you don't tell us any tasks you need to do, how can we help you decide??")
+    console.log(url)
+  }
+  else {
+    createResponseBox();
+    axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=${thing}`).then(data => {
       let url = data.data.data[imgRando].images.original.url
 
       document.body.style.backgroundImage =  `linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(${url})`
     })
 
-  createResponseBox();
-  document.querySelector("#dothis").innerHTML = `${thing}`
+    document.querySelector("#dothis").innerHTML = `We have decided you will ${thing.toLowerCase()}`
+  }
 }
 
 
