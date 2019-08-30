@@ -19,14 +19,15 @@ document.querySelector("#add").onclick = () => {
 
 
 document.querySelector("#done").onclick = () => {
-  document.querySelector("header").setAttribute("style", "display:none")
-  document.querySelector("#tasks input").setAttribute("style", "display:none")
-  document.querySelector("#tasks button").setAttribute("style", "display:none")
-  document.querySelector(".responses").setAttribute("style", "min-height: 60vh; text-align: left")
-  document.querySelector("#done").setAttribute("style", "display:none");
-  document.querySelector("#answer").setAttribute("style", "display: flex")
+  if (tasks.length > 0) {
+    document.querySelector("header").setAttribute("style", "display:none")
+    document.querySelector("#tasks input").setAttribute("style", "display:none")
+    document.querySelector("#tasks button").setAttribute("style", "display:none")
+    document.querySelector(".responses").setAttribute("style", "min-height: 60vh; text-align: left")
+    document.querySelector("#done").setAttribute("style", "display:none");
+    document.querySelector("#answer").setAttribute("style", "display: flex")
+  }
 }
-
 
 
 
@@ -44,7 +45,7 @@ document.querySelector("#no").onclick = () => {
     document.querySelector("#list").setAttribute("style", "display: none;")
     document.querySelector("#answer").setAttribute("style", "display: none;")
     createResponseBox();
-    document.querySelector("#dothis").innerHTML = `We have decided you will ${data.data.activity.toLowerCase()}`
+    document.querySelector("#dothis").innerHTML = `We have decided that you will ${data.data.activity.toLowerCase()}`
     document.querySelector("#next").setAttribute("style", "display: block;")
   })
 }
@@ -58,19 +59,6 @@ document.querySelector("#yes").onclick = () => {
   let thing = tasks[random]
   let imgRando = Math.floor(10 * Math.random());
 
-  if (thing === undefined) {
-    createResponseBox();
-    axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=judging`).then(data => {
-      let url = data.data.data[imgRando].images.original.url
-    document.body.style.backgroundImage =  `linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(${url})`
-    })
-    document.querySelector("#list").setAttribute("style", "display: none;")
-    document.querySelector("#answer").setAttribute("style", "display: none;")
-    document.querySelector("#dothis").innerHTML = `You have not added any tasks`
-    document.querySelector("#next").setAttribute("style", "display: block;")
-    //alert("If you don't tell us any tasks you need to do, how can we help you decide??")
-  }
-  else {
     createResponseBox();
     axios.get(`http://api.giphy.com/v1/gifs/search?api_key=PAisOsDZTQhp368DqHfEh0KoWuAWZi7B&q=${thing}`).then(data => {
       let url = data.data.data[imgRando].images.original.url
@@ -80,9 +68,9 @@ document.querySelector("#yes").onclick = () => {
     tasks.splice(random, 1)
     document.querySelector("#list").setAttribute("style", "display: none;")
     document.querySelector("#answer").setAttribute("style", "display: none;")
-    document.querySelector("#dothis").innerHTML = `We have decided you will ${thing.toLowerCase()}`
+    document.querySelector("#dothis").innerHTML = `We have decided that you will ${thing.toLowerCase()}`
     document.querySelector("#next").setAttribute("style", "display: block;")
-  }
+
 }
 
 // gives you your next random task
@@ -101,7 +89,6 @@ document.querySelector("#next").onclick = () => {
     document.querySelector("#answer").setAttribute("style", "display: none;")
     document.querySelector("#dothis").innerHTML = ` CONGRATS! You've finished your tasks!`
     document.querySelector("#next").setAttribute("style", "display: none;")
-    //alert("If you don't tell us any tasks you need to do, how can we help you decide??")
   }
   else {
     createResponseBox();
@@ -113,7 +100,7 @@ document.querySelector("#next").onclick = () => {
     tasks.splice(random, 1)
     document.querySelector("#list").setAttribute("style", "display: none;")
     document.querySelector("#answer").setAttribute("style", "display: none;")
-    document.querySelector("#dothis").innerHTML = `We have decided you will ${thing.toLowerCase()}`
+    document.querySelector("#dothis").innerHTML = `We have decided that you will ${thing.toLowerCase()}`
     document.querySelector("#next").setAttribute("style", "display: block;")
   }
 }
